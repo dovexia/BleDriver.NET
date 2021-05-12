@@ -3060,6 +3060,7 @@ namespace BgApiDriver {
             public int connection;
             public int atthandle;
             public int type;
+            public int value_len;
             public byte[] value;
         }
 
@@ -3637,6 +3638,7 @@ namespace BgApiDriver {
                                     s.connection = buffer[idx++];
                                     s.atthandle = buffer[idx+0] | (buffer[idx+1] << 8); idx+=2;
                                     s.type = buffer[idx++];
+                                    s.value_len = buffer[idx];
                                     s.value = new byte[buffer[idx++]];
                                     for(int i = 0; i < s.value.Length; i++)
                                     {
